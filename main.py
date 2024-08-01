@@ -14,22 +14,35 @@ def begin(usuario,senha):
     pyautogui.PAUSE = 2
     pyautogui.write(usuario,interval=0.1)
     pyautogui.click(321,583,duration=1) 
-    pyautogui.write(senha,interval=0.1)
+    pyautogui.write(senha,interval=1)
     pyautogui.press('enter')
     pyautogui.PAUSE = 2
     opcao()
 sleep(3)
+
 def folhaPonto():
-    #Entra no visitas 
+    #Entra no folha de ponto 
     pyautogui.click(669,142,duration=1)
     pyautogui.PAUSE = 2
     pyautogui.click(461,462,duration=1)
     sleep(2)
     pyautogui.click(506,639,duration=1)
+    sleep(3)
+    pyautogui.click(1395,469)
+    pyautogui.PAUSE = 4
+    pyautogui.press('enter')
 
+def visitas():
+    #Entra no visitas 
+    pyautogui.click(669,142,duration=1)
+    pyautogui.PAUSE = 2
+    pyautogui.click(461,462,duration=1)
+    sleep(2)
+    pyautogui.click(510,782,duration=1)
+    sleep(2)
+    pyautogui.click(1417,435,duration=1)
 
-
- 
+    
 
 def opcao():
     resposta = pyautogui.confirm(
@@ -121,3 +134,4 @@ if __name__ == "__main__":
     app = ttk.Window("Nossa Hepta", "superhero", resizable=(False, False))
     DataEntryForm(app)
     app.mainloop()
+
