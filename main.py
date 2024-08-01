@@ -17,11 +17,39 @@ def begin(usuario,senha):
     pyautogui.write(senha,interval=0.1)
     pyautogui.press('enter')
     pyautogui.PAUSE = 2
-    #opcao()
+    opcao()
 sleep(3)
+def folhaPonto():
+    #Entra no visitas 
+    pyautogui.click(669,142,duration=1)
+    pyautogui.PAUSE = 2
+    pyautogui.click(461,462,duration=1)
+    sleep(2)
+    pyautogui.click(506,639,duration=1)
+
 
 
  
+
+def opcao():
+    resposta = pyautogui.confirm(
+        text='Qual funcionalidade deseja acessar?',
+        title='Sistema de Acesso',
+        buttons=['Visitas', 'Folha de Ponto', 'Repetir Procedimento']
+
+    )
+
+    if resposta == 'Visitas':
+        visitas()
+    elif resposta == 'Folha de Ponto':
+        folhaPonto()
+    elif resposta == 'Repetir Procedimento':
+        begin()
+    else:
+        pyautogui.alert('Opção Invalida')
+        exit()
+
+sleep(3)
 
 class DataEntryForm(ttk.Frame):
 
