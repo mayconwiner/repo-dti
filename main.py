@@ -1,5 +1,26 @@
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
+import pyautogui
+import os
+import webbrowser
+from time import sleep
+
+def begin(usuario,senha):
+    pyautogui.PAUSE = 4
+    webbrowser.open('https://nossahepta.com.br')
+    pyautogui.click(349,535,clicks=2,duration=0.1)
+    sleep(3)
+    pyautogui.click(349,535,clicks=2,duration=0.1)
+    pyautogui.PAUSE = 2
+    pyautogui.write(usuario,interval=0.1)
+    pyautogui.click(321,583,duration=1) 
+    pyautogui.write(senha,interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.PAUSE = 2
+    #opcao()
+sleep(3)
+
+
  
 
 class DataEntryForm(ttk.Frame):
@@ -58,7 +79,8 @@ class DataEntryForm(ttk.Frame):
         cnl_btn.pack(side=RIGHT, padx=5)
 
     def on_submit(self):
-        pass
+        begin(self.name.get(),self.password.get())
+        self.quit()
     
        
     def on_cancel(self):
