@@ -8,6 +8,16 @@ vendas = {
     'Alon': 7870
 }
 
+def preco_final(preco, **adicionais):
+    print(adicionais)
+    if 'desconto' in adicionais:
+        preco *= (1 - adicionais['desconto'])
+    if 'garantia_extra' in adicionais:
+        preco += adicionais['garantia_extra']
+    if 'imposto' in adicionais:
+        preco *= (1 + adicionais['imposto'])
+    return preco
+
 def calculo_meta(meta,vendas):
     '''Calcula a porcentagem de vendedores que bateram a meta e retorna uma lista com os vendedores que bateram a meta'''
     bateram_meta = []
